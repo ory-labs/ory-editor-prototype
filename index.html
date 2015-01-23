@@ -2,8 +2,59 @@
 <html>
 <head>
     <title></title>
+    <script src="mediumjs/medium.js"></script>
+    <script src="libs/mediumButton.js"></script>
+    <link rel="stylesheet" href="mediumjs/medium.css">
 </head>
 <body>
+<div id="article4" class="article demo">
+    <p>Die meisten Funktionen, die in der Schule abgeleitet werden müssen, sind durch Summen, Produkte und Verknüpfungen
+        einiger weniger Funktionen gegeben.</p>
 
+    <p>Um Ableitungen erfolgreich zu berechnen genügt es also:</p>
+    <ol>
+        <li>die gegebene Funktion so umzuformen, dass die Ableitungsregeln benutzt werden können,</li>
+        <li>die Funktion dann passend aufzuspalten,</li>
+        <li>die Ableitungen der Bestandteile zu kennen und dann</li>
+        <li>stumpf die Ableitungsregeln anzuwenden.</li>
+    </ol>
+    <span class="mathInline">%%f\left(x\right)=x^n ,\; n\in\mathbb{R}%%</span>
+</div>
+<script type="text/javascript">
+    var article4 = document.getElementById('article4'),
+
+    article4Medium = new Medium({
+        element: article4,
+        mode: Medium.richMode,
+        placeholder: 'Your Article 4',
+        attributes: null,
+        tags: null,
+        pasteAsText: false,
+        buttons: ['i', 'b', 'h2', 'h3', 'h4', 'h5', 'h6', 'a'],
+        extensions: {
+            'b':  new MediumButton({label:'Bold', start:'<strong>', end:'</strong>'}),
+            'i':  new MediumButton({label:'Italic', start:'<em>', end:'</em>'}),
+            'h1':  new MediumButton({label:'Page heading (h1)', start:'<h1>', end:'</h1>'}),
+            'h2':  new MediumButton({label:'Section heading (h2)', start:'<h2>', end:'</h2>'}),
+            'h3': new MediumButton({label:'Subsection heading (h3)', start:'<h3>', end:'</h3>'}),
+
+            // The Code for the Button JavaScript is below
+
+            'warning': new MediumButton({
+                label: '<i class="fa fa-exclamation-triangle"></i>',
+                start: '<div class="warning">',
+                end:   '</div>'
+            }),
+
+            'pop': new MediumButton({
+                label:'POP',
+                action: function(html, mark){
+                    alert('hello :)');
+                    return html;
+                }
+            })
+        }
+    });
+</script>
 </body>
 </html>
